@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>FinTrack</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="flex h-screen bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="sidebar p-6 bg-[#2d3748] shadow-md">
+    <h1 class="text-2xl font-bold text-white-600 mb-6">📊 FinTrack</h1>
+    <nav class="flex flex-col gap-4 text-gray-700">
+      <button class="boton" data-section="dashboard">🏠 Inicio</button>
+      <button class="boton" data-section="ingresos">💹 Ingresos</button>
+      <button class="boton" data-section="gastos">💵 Gastos</button>
+            
+      <button class="boton" data-section="informes">📈 Informes</button>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content flex-1 overflow-y-auto">
+    <header class="bg-[#2d3748] shadow p-4 flex justify-between items-center">
+      <h2 class="text-xl font-semibold">Bienvenido a FinTrack 📊</h2>
+      <div class="flex gap-4">
+        
+        <button id="logoutButton" >Cerrar Sesión</button>
+      </div>
+    </header>
+   
+    <main class="p-6">
+      <!-- DASHBOARD -->
+      <section id="dashboard" class="seccion activa">
+        <h2 class="text-2xl font-bold mb-4">🏠 Inicio</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="card">
+            <h3 class="text-lg font-bold text-gray-700">Total de Ingresos</h3>
+            <p class="text-2xl font-semibold text-green-500" id="total-ingresos">$0.00</p>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-bold text-gray-700">Total de Gastos</h3>
+            <p class="text-2xl font-semibold text-red-500" id="total-gastos">$0.00</p>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-bold text-gray-700">Balance Total</h3>
+            <p class="text-2xl font-semibold text-blue-500" id="balance-actual">$0.00</p>
+          </div>
+        </div>
+
+
+
+
+        <!-- Gráficos -->
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white shadow rounded-lg p-4">
+            <h3 class="text-lg font-bold mb-4">Ingresos vs Gastos</h3>
+            <canvas id="graficoIngresosGastos"></canvas>
+          </div>
+          <div class="bg-white shadow rounded-lg p-4">
+            <h3 class="text-lg font-bold mb-4" >Distribución por Categorías de ingresos y gastos</h3>
+            <canvas class="cate" id="graficoCategorias"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- INGRESOS -->
+      <section id="ingresos" class="seccion oculto">
+        <h2 class="text-2xl font-bold mb-4  color-black">💹 Registrar Ingreso</h2>
+        <form id="form-ingreso" class="formulario-ingreso">
+          <div class="mb-4">
+            <label for="descripcion" class="block text-gray-700 font-bold mb-2">Descripción:</label>
+            <input type="text" id="descripcion" class="input" required />
+          </div>
+          <div class="mb-4">
+            <label for="monto" class="block text-black-700 font-bold mb-2">Monto:</label>
+            <input type="number" id="monto" class="input" required />
+          </div>
+          <div class="mb-4">
+            <label for="categoria" class="block text-gray-700 font-bold mb-2">Categoría:</label>
+            <select id="categoria" class="input" required>
+              
+              <option value="Sueldo">Sueldo</option>
+              <option value="Freelance">Ventas</option>
+              <option value="Comisiones">Comisiones</option>
+              <option value="Otros">Otros</option>
+
+              
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="fecha" class="block text-gray-700 font-bold mb-2">Fecha:</label>
+            <input type="date" id="fecha" class="input" required />
+          </div>
+          <button type="submit" class="btn-agregar">Agregar ingreso</button>
+          <button onclick="eliminarTodosLosIngresos()" class="btn-eliminar">Eliminar Todos los Ingresos</button>
+        </form>
+
+        <!-- Lista de Ingresos -->
+        <div id="lista-ingresos" class="mt-6">
+          <h3 class="text-lg font-bold mb-4">📋 Lista de Ingresos</h3>
+          <ul class="bg-white shadow rounded-lg p-4" id="ingresos-lista">
+            <!-- Los ingresos se agregarán aquí dinámicamente -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- GASTOS -->
+      <section id="gastos" class="seccion oculto">
+        <h2 class="text-2xl font-bold mb-4">💵 Registrar Gasto</h2>
+        <form id="form-gasto" class="formulario-gasto">
+          <div class="mb-4">
+            <label for="descGasto" class="block text-gray-700 font-bold mb-2">Descripción:</label>
+            <input type="text" id="descGasto" class="input"  required />
+          </div>
+          <div class="mb-4">
+            <label for="montoGasto" class="block text-gray-700 font-bold mb-2">Monto:</label>
+            <input type="number" id="montoGasto" class="input"  required />
+          </div>
+          <div class="mb-4">
+            <label for="catGasto" class="block text-gray-700 font-bold mb-2">Categoría:</label>
+            <select id="catGasto" class="input" required>
+              
+              <option value="Comida">Comida</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Entretenimiento">Entretenimiento</option>
+              <option value="Servicios">Servicios</option>
+              <option value="Otros">Otros</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="fechaGasto" class="block text-gray-700 font-bold mb-2">Fecha:</label>
+            <input type="date" id="fechaGasto" class="input" required />
+          </div>
+          <button type="submit" class="btn-agregar">Agregar gasto</button>
+          <button onclick="eliminarTodosLosGastos()" class="btn-eliminar">Eliminar Todos los gastos</button>
+        </form>
+
+        <!-- Lista de Gastos -->
+        <div id="lista-egresos" class="mt-6">
+          <h3 class="text-lg font-bold mb-4">📋 Lista de Gastos</h3>
+          <ul class="bg-white shadow rounded-lg p-4" id="egresos-lista">
+            <!-- Los gastos se agregarán aquí dinámicamente -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- MOVIMIENTOS -->
+      <section id="movimientos" class="seccion oculto">
+        <h2 class="text-2xl font-bold mb-4">🔄 Movimientos</h2>
+
+        <!-- Filtros -->
+        <div class="mb-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label for="filtro-tipo" class="block text-gray-700 font-bold mb-2">Tipo:</label>
+            <select id="filtro-tipo" class="input w-full">
+              <option value="todos">Todos</option>
+              <option value="ingresos">Ingresos</option>
+              <option value="gastos">Gastos</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro-mes" class="block text-gray-700 font-bold mb-2">Mes:</label>
+            <select id="filtro-mes" class="input w-full color:black">
+              <option value="todos" style="color:black">Todos</option>
+              <option value="1">Enero</option>
+              <option value="2">Febrero</option>
+              <option value="3">Marzo</option>
+              <option value="4">Abril</option>
+              <option value="5">Mayo</option>
+              <option value="6">Junio</option>
+              <option value="7">Julio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Septiembre</option>
+              <option value="10">Octubre</option>
+              <option value="11">Noviembre</option>
+              <option value="12">Diciembre</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro-anio" class="block text-gray-700 font-bold mb-2">Año:</label>
+            <input type="number" id="filtro-anio" class="input w-full" placeholder="Ejemplo: 2025" />
+          </div>
+        </div>
+
+        <!-- Lista de Movimientos -->
+        <div id="lista-movimientos" class="mt-6">
+          <h3 class="text-lg font-bold mb-4">📋 Lista de Movimientos</h3>
+          <ul class="bg-white shadow rounded-lg p-4 divide-y divide-gray-200" id="movimientos-lista">
+            <!-- Los movimientos se agregarán aquí dinámicamente -->
+          </ul>
+        </div>
+      </section>
+      <section id="informes" class="seccion oculto">
+        <h2 class="text-2xl font-bold mb-4">📈 Generar Informes</h2>
+      
+        <!-- Filtros -->
+        <form id="form-informes" class="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label for="filtro-mes-informe" class="block text-gray-700 font-bold mb-2">Mes:</label>
+            <select id="filtro-mes-informe" class="input w-full">
+              <option value="todos">Todos</option>
+              <option value="1">Enero</option>
+              <option value="2">Febrero</option>
+              <option value="3">Marzo</option>
+              <option value="4">Abril</option>
+              <option value="5">Mayo</option>
+              <option value="6">Junio</option>
+              <option value="7">Julio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Septiembre</option>
+              <option value="10">Octubre</option>
+              <option value="11">Noviembre</option>
+              <option value="12">Diciembre</option>
+            </select>
+          </div>
+          <div>
+            <label for="filtro-anio-informe" class="block text-gray-700 font-bold mb-2">Año:</label>
+            <input type="number" id="filtro-anio-informe" class="input w-full" placeholder="Ejemplo: 2025" />
+          </div>
+          <div>
+            <button type="submit" class="btn-agregar w-full mt-6">Generar Informe</button>
+          </div>
+        </form>
+      
+        <!-- Resultados del Informe -->
+        <div id="resultados-informe" class="bg-white shadow rounded-lg p-6">
+          <h3 class="text-lg font-bold mb-4">📋 Resultados del Informe</h3>
+          <ul id="lista-informes" class="divide-y divide-gray-200">
+            <!-- Los resultados del informe se agregarán aquí dinámicamente -->
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase.js"></script>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+/* General styles */
+body {
+    background-color: #194867;
+    font-family: Arial, sans-serif;
+  }
+  .header enca {
+    
+    background-color: #2d3748;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  .sidebar {
+    background-color: #2d3748;
+    color: white;
+  }
+  
+  .boton {
+    background-color: #4a5568;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .boton:hover {
+    background-color: #2d3748;
+  }
+  
+  .main-content {
+    background-color: #a8bbc7;
+  }
+  .main-content h2{
+    color: #f7f8fa;
+  }
+  .card {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #4299e1;
+  }
+  
+  .btn-agregar {
+    background-color: #4299e1;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+  .btn-eliminar {
+    background-color: #942323;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+  
+  .btn-agregar:hover {
+    background-color: #3182ce;
+  }
+  .btn-eliminar:hover {
+    background-color: #e1424f;
+  }
+  
+  .table-auto {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-auto th,
+  .table-auto td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .table-auto th {
+    background-color: #edf2f7;
+  }
+  
+  .text-gray-700 {
+    color: #4a5568;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .font-bold {
+    font-weight: bold;
+  }
+  
+  .text-green-500 {
+    color: #48bb78;
+  }
+  
+  .text-red-500 {
+    color: #f56565;
+  }
+  
+  .text-blue-500 {
+    color: #4299e1;
+  }
+  
+  .shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  .p-4 {
+    padding: 1rem;
+  }
+  
+  .p-6 {
+    padding: 1.5rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+  
+  .bg-white {
+    background-color: white;
+  }
+  
+  .bg-gray-200 {
+    background-color: #edf2f7;
+  }
+  /* Estilos para formularios por sector */
+.formulario-ingreso {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #c6c6cb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    
+  }
+  .formulario-ingreso input {
+    width: 100%;
+  }
+  
+  .formulario-gasto { max-width: 400px;
+    margin: 0 auto;
+    background-color: #c6c6cb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .seccion {
+    display: none;
+  }
+  
+  .seccion.activa {
+    display: block;
+  }
+  
+  .seccion.oculto {
+    display: none;
+  }
+  /* Estilo para los elementos de la lista de ingresos */
+#ingresos-lista li {
+    background-color: #f9fafb;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+  }
+  #egresos-lista li {
+    background-color: #f9fafb;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+  }
+  /* Estilo para los elementos de la lista de movimientos */
+#movimientos-lista li {
+    background-color: #f9fafb;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+  }
+  /* Estilo para los filtros */
+#movimientos .input {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  #informes .input {
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .dark-mode #informes .input {
+    color: black;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Estilo para los elementos de la lista de movimientos */
+  #movimientos-lista li {
+    background-color: #f9fafb;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.375rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #movimientos-lista li span {
+    font-weight: bold;
+  }
+  
+  #movimientos-lista li .tipo-ingreso {
+    color: #48bb78; /* Verde para ingresos */
+  }
+  
+  #movimientos-lista li .tipo-gasto {
+    color: #f56565; /* Rojo para gastos */
+  }
+  /* Ajustar el tamaño de los gráficos */
+.cate {
+    
+  max-width: 100%;
+  height: 200px;
+}
+
+/* Estilo para las tarjetas */
+.card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+/* Estilo para los resultados del informe */
+#resultados-informe {
+    margin-top: 1.5rem;
+  }
+  
+  #lista-informes li {
+    background-color: #f9fafb;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.375rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #lista-informes li span {
+    font-weight: bold;
+  }
+  
+  #lista-informes li .text-green-500 {
+    color: #48bb78; /* Verde para ingresos */
+  }
+  
+  #lista-informes li .text-red-500 {
+    color: #f56565; /* Rojo para gastos */
+  }
+  /* Alinear el botón de "Generar Informe" */
+#form-informes .btn-agregar {
+    background-color: #4f46e5; /* Color del botón */
+    color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  #form-informes .btn-agregar:hover {
+    background-color: #4338ca; /* Color al pasar el mouse */
+  }
+  
+  #form-informes .flex.items-end {
+    align-items: flex-end; /* Alinear el botón al final del contenedor */
+  }
+  /* Modo oscuro */
+.dark-mode {
+    background-color: #1a202c; /* Fondo oscuro */
+    color: #f7fafc; /* Texto claro */
+  }
+  
+  .dark-mode .sidebar {
+    background-color: #2d3748; /* Fondo oscuro para la barra lateral */
+  }
+  
+  .dark-mode .card {
+    background-color: #2d3748; /* Fondo oscuro para las tarjetas */
+    color: #f7fafc; /* Texto claro */
+  }
+  .dark-mode .card h3{
+  background-color: #2d3748; /* Fondo oscuro para las tarjetas */
+  color: #f7fafc; /* Texto claro */
+}
+  
+  .dark-mode .bg-white {
+    background-color: #2d3748; /* Fondo oscuro para elementos con fondo blanco */
+  }
+  
+  .dark-mode .btn-agregar {
+    background-color: #4a5568; /* Botón oscuro */
+    color: #f7fafc; /* Texto claro */
+  }
+  
+  .dark-mode .btn-agregar:hover {
+    background-color: #2c5282; /* Botón más oscuro al pasar el mouse */
+  }
+  .dark-mode #ingresos-lista li {
+    background-color: #4f85be;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+  }
+  .dark-mode #seccion.oculto h2{
+    color: #000;
+  }
+  .dark-mode #egresos-lista li {
+    background-color: #4f85be;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+  }
+  .login-body {
+    background: linear-gradient(#285aac, #f2f0f4);
+    background-size: 300% 300%; /* Para animación */
+    animation: gradient-animation 8s ease infinite; /* Animación del fondo */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Para evitar que el contenido quede pegado en pantallas pequeñas */
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(103, 15, 15, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    backdrop-filter: blur(10px); /* Mejora el efecto de fondo */
+  }
+  
+  .login-container h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #1e293b; /* Color oscuro para contraste */
+  }
+  
+  .login-subtitle {
+    color: #6b7280;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .login-form input {
+    width: 75%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9fafb;
+    transition: border-color 0.3s ease;
+  }
+  
+  .login-form input:focus {
+    border-color: #3b82f6; /* Azul para enfoque */
+    outline: none;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  
+  .login-form button {
+    width: 75%;
+    padding: 12px;
+    background-color: #132f5c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .login-form button:hover {
+    background-color: #4c78d6;
+    transform: scale(1.02); /* Pequeño efecto de zoom */
+  }
+  
+  .login-hint {
+    margin-top: 10px;
+    color: #6b7280;
+    font-size: 13px;
+  }
+  
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 20px;
+    }
+  
+    .login-container h1 {
+      font-size: 24px;
+    }
+  }
+  .app-header logout-btn
+  {
+    align-items: right;
+  }
+  /* Estilo para los select */
+.dark-mode select {
+  color: black; /* Texto negro */
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #e2e8f0; /* Borde gris claro */
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+/* Estilo para las opciones dentro del select */
+select option {
+  color: black; /* Texto negro */
+  background-color: white; /* Fondo blanco */
+}
+/* Estilo para los campos de fecha */
+input[type="date"] {
+  color: black; /* Texto negro */
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #e2e8f0; /* Borde gris claro */
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+/* Estilo para los campos de fecha en modo oscuro */
+.dark-mode input[type="date"] {
+  color: black; /* Texto negro */
+  background-color: white; /* Fondo blanco */
+  border: 1px solid #e2e8f0; /* Borde gris claro */
+}
+
+/* Botón general */
+#toggleTheme, #logoutButton {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 600;  
+  background: #3f51b5;
+  color: #fff;
+  margin: 0.2rem 0.2rem;
+ 
+}
+
+#toggleTheme {
+  background: #04399b;
+  color: #f6f6f6;
+}
+#toggleTheme:hover {
+  background: #181e29;
+  color: #fffbe7;
+}
+
+#logoutButton {
+  background: #e53e3e;
+  color: #fff;
+}
+#logoutButton:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+
+/* Modo oscuro para los botones */
+body.dark-mode #toggleTheme {
+  background: #3561e8;
+  color: #fdfefe;
+}
+body.dark-mode #toggleTheme:hover {
+  background: #fffbe7;
+  color: #181e29;
+}
+body.dark-mode #logoutButton {
+  background: #ff6b6b;
+  color: #fafbfd;
+}
+body.dark-mode #logoutButton:hover {
+  background: #b91c1c;
+  color: #fff;
+}
